@@ -17,7 +17,7 @@
                 </el-form-item>
                 <!-- 按钮区域 -->
                 <el-form-item class="btns">
-                    <el-button type="primary">登录</el-button>
+                    <el-button type="primary" @click='login'>登录</el-button>
                     <el-button type="info" @click='resetLoginForm'>重置</el-button>
                 </el-form-item>
             </el-form>
@@ -31,14 +31,14 @@ export default {
     return {
       // 登录表单的数据绑定对象
       loginForm: {
-        username: 'zhaozhiyong',
+        username: 'admin',
         password: '123456'
       },
       // 表单的验证规则对象
       loginFormRules: {
         // 验证用户名是否合法
         username: [{ required: true, message: '请输入用户名', trigger: 'blur' },
-          { min: 3, max: 8, message: '长度在 3 到 5 个字符', trigger: 'blur' }],
+          { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }],
         // 验证密码是否合法
         password: [{ required: true, message: '请输入密码', trigger: 'blur' },
           { min: 6, max: 15, message: '密码长度在 6 到 15 个字符', trigger: 'blur' }]
@@ -49,7 +49,24 @@ export default {
     // 点击重置按钮，重置登录表单
     resetLoginForm () {
     //   console.log(this);
-      this.$refs.loginFormRef.resetFields();
+      this.$refs.loginFormRef.resetFields()
+    },
+    login () {
+      this.$refs.loginFormRef.validate(async valid => {
+        // 如果验证不通过，则不发请求
+        if (!valid) return
+        // 发送登录请求
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        console.log(res)
+        if (res.meta.status !== 200) return this.$message.error('登录失败！请重新登录！')
+        this.$message.success('登录成功')
+
+        console.log(res)
+        // 将token保存到sessionstorage中
+        window.sessionStorage.setItem('token', res.data.token)
+        // 通过编程式导航进行跳转
+        this.$router.push('/home')
+      })
     }
   }
 
