@@ -25,7 +25,7 @@
           :collapse="isCollapse"
           :collapse-transition="false"
           :router="true"
-          default-active="/roles"
+          :default-active="activePath"
         >
           <!-- 一级菜单 -->
           <el-submenu
@@ -45,6 +45,7 @@
               :index="'/' + subItem.path"
               v-for="subItem in item.children"
               :key="subItem.id"
+              @click="saveNavState('/' + subItem.path)"
             >
               <!-- 二级菜单模板区 -->
               <template slot="title">
@@ -81,12 +82,15 @@ export default {
         145: 'iconfont icon-baobiao'
       },
       // 是否折叠 默认不折叠
-      isCollapse: false
+      isCollapse: false,
+      // 被激活的链接地址
+      activePath: ''
     }
   },
-  // 声明周期函数
+  // 生命周期函数
   created() {
     this.getMenuList()
+    this.activePath = window.sessionStorage.getItem('activePath')
   },
 
   methods: {
@@ -108,6 +112,10 @@ export default {
     // 点击按钮，切换菜单的折叠与展开
     toggleCollapse() {
       this.isCollapse = !this.isCollapse
+    },
+    // 保存连接的激活状态
+    saveNavState(activePath) {
+      window.sessionStorage.setItem('activePath', activePath)
     }
   }
 }
@@ -145,7 +153,7 @@ export default {
   }
 }
 .el-main {
-  background-color: rgb(209, 192, 192);
+  background-color: rgb(224, 214, 214);
 }
 
 .iconfont {
