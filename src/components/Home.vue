@@ -107,7 +107,7 @@ export default {
       }
       // this.$message.success('读取菜单数据成功！')
       this.menulist = res.data
-      console.log(res)
+      // console.log(res)
     },
     // 点击按钮，切换菜单的折叠与展开
     toggleCollapse() {
