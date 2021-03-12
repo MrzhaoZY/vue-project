@@ -9,8 +9,8 @@ import Goods from '../components/Goods.vue'
 import Orders from '../components/Orders.vue'
 import Params from '../components/Params.vue'
 import Reports from '../components/Reports.vue'
-import Rights from '../components/Rights.vue'
-import Roles from '../components/Roles.vue'
+import Rights from '../components/Power/Rights.vue'
+import Roles from '../components/Power/Roles.vue'
 Vue.use(VueRouter)
 
 const routes = [{

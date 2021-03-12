@@ -17,6 +17,7 @@ import {
   BreadcrumbItem,
   Card,
   Select,
+  Option,
   Row,
   Col,
   Table,
@@ -25,7 +26,9 @@ import {
   Tooltip,
   Pagination,
   Dialog,
-  MessageBox
+  MessageBox,
+  Tag,
+  Tree
 } from 'element-ui'
 
 Vue.use(Button)
@@ -51,7 +54,9 @@ Vue.use(Switch)
 Vue.use(Tooltip)
 Vue.use(Pagination)
 Vue.use(Dialog)
-
+Vue.use(Tag)
+Vue.use(Tree)
+Vue.use(Option)
 // 把弹窗组件挂载到vue上，这样每个组件都可以通过this访问到$message
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
