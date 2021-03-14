@@ -28,7 +28,8 @@ import {
   Dialog,
   MessageBox,
   Tag,
-  Tree
+  Tree,
+  Cascader
 } from 'element-ui'
 
 Vue.use(Button)
@@ -57,6 +58,7 @@ Vue.use(Dialog)
 Vue.use(Tag)
 Vue.use(Tree)
 Vue.use(Option)
+Vue.use(Cascader)
 // 把弹窗组件挂载到vue上，这样每个组件都可以通过this访问到$message
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
