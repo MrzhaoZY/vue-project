@@ -206,7 +206,6 @@ export default {
       this.cateList = res.data.result
       // 为总数据条数赋值
       this.total = res.data.total
-      console.log(this.cateList)
     },
     // 监听pagesize 改变的事件
     handleSizeChange(newSize) {
@@ -234,7 +233,6 @@ export default {
         return this.$message.error('获取父级分类数据失败')
       }
       this.parentCateList = res.data
-      console.log(this.parentCateList)
     },
     // 选择项发生变化触发这个函数
     parentCateChanged() {

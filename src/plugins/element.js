@@ -29,7 +29,10 @@ import {
   MessageBox,
   Tag,
   Tree,
-  Cascader
+  Cascader,
+  Alert,
+  Tabs,
+  TabPane
 } from 'element-ui'
 
 Vue.use(Button)
@@ -59,6 +62,9 @@ Vue.use(Tag)
 Vue.use(Tree)
 Vue.use(Option)
 Vue.use(Cascader)
+Vue.use(Alert)
+Vue.use(Tabs)
+Vue.use(TabPane)
 // 把弹窗组件挂载到vue上，这样每个组件都可以通过this访问到$message
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
