@@ -39,6 +39,8 @@ import {
   Checkbox,
   Upload
 } from 'element-ui'
+import Timeline from './timeline/index.js'
+import TimelineItem from './timeline-item/index.js'
 
 Vue.use(Button)
 Vue.use(Form)
@@ -75,6 +77,8 @@ Vue.use(Step)
 Vue.use(CheckboxGroup)
 Vue.use(Checkbox)
 Vue.use(Upload)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 // 把弹窗组件挂载到vue上，这样每个组件都可以通过this访问到$message
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
